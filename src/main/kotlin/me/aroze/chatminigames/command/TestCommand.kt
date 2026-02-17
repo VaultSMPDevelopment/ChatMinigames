@@ -10,11 +10,11 @@ import me.aroze.chatminigames.minigame.impl.UnscrambleGame
 import org.bukkit.command.CommandSender
 
 @CommandInfo(
-    description = "testy test",
+    description = "",
     permission = "chatminigames.test",
-    permissionMessage = "No testy for you!",
+    permissionMessage = "no permission",
 )
-object TestCommand : FancyCommand("testgame") {
+object TestCommand : FancyCommand("chatgames-start") {
     override fun onCommand(sender: CommandSender, label: String, args: Array<out String>) {
         MathGame.start()
     }

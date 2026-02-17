@@ -22,7 +22,7 @@ object GameHandler: Listener {
         val endTime = System.currentTimeMillis()
         runningGame?.let {
 
-            val settings = config.getConfigurationSection("misc-settings")
+            val settings = config.getConfigurationSection("misc-settings")!!
             if (settings.getBoolean("ignore-cancelled-messages") && event.isCancelled) return
 
             if (settings.getBoolean("case-sensitive") && event.message != runningGame!!.values["answer"]) return
@@ -50,11 +50,11 @@ object GameHandler: Listener {
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replacePlaceholders(it.values))
                 }
 
-                val sounds = config.getConfigurationSection("effects.sound")
+                val sounds = config.getConfigurationSection("effects.sound")!!
                 if (sounds.getBoolean("enabled")) {
-                    Bukkit.getPlayer(it.values["player"]).playSound(
-                        Bukkit.getPlayer(it.values["player"]).location,
-                        Sound.valueOf(sounds.getString("sound").replace(".", "_").uppercase()),
+                    Bukkit.getPlayer(it.values["player"]!!)!!.playSound(
+                        Bukkit.getPlayer(it.values["player"]!!)!!.location,
+                        Sound.valueOf(sounds.getString("sound")!!.replace(".", "_").uppercase()),
                         sounds.get("volume").toString().toFloat(),
                         sounds.get("pitch").toString().toFloat()
                     )

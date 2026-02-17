@@ -9,7 +9,7 @@ import org.bukkit.configuration.ConfigurationSection
 
 object MathGame : GenericGame(GameType.MATH) {
 
-    val settings: ConfigurationSection = config.getConfigurationSection("extra-game-settings.math.arithmetic")
+    val settings: ConfigurationSection = config.getConfigurationSection("extra-game-settings.math.arithmetic")!!
     private val randomOperation = Randomiser(Operation.values().toList())
     private var randomFactor = Randomiser(divisiblePairsBetween(
         settings.getInt("division.min-value"), settings.getInt("division.max-value")
@@ -63,7 +63,7 @@ object MathGame : GenericGame(GameType.MATH) {
     private enum class Operation {
         ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION;
         fun getType() : String = this.name.lowercase()
-        fun getSymbol(): String = settings.getString("${this.getType()}.symbol")
+        fun getSymbol(): String = settings.getString("${this.getType()}.symbol")!!
     }
 
 } // hehe line 69

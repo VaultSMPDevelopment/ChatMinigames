@@ -23,27 +23,26 @@
 # Spaces will be ignored.
 
 wordList:
-  "Attractive, Baguette, Bathtub, Bedrock, Broadcast, Brother, Ceiling, Character, Choke, Compartment, Competitive,
-  Conclusion, Confession, Couple, Cucumber, Daddy, Defenestration, Diamond, Discombobulated, Duvet, Eggplant, Emerald,
-  Extension, Fishing, Floor, Generator, Greeting, Hypothesis, Immortal, Improvement, Invasion, Iron, Journal, Knowledge,
-  Legend, Marriage, Mommy, Multiplier, Nerd, Obsidian, Photosynthesis, Pillow, Prestige, Raid, Sister, Stick, Suck,
-  Summer, Swallow, Transparent, Treat, Unique, Villager, Vomit, Winter"
+  "Avocado, Blizzard, Blossom, Blueberry, Brilliant, Butterfly, Cactus, Canyon, Cheetah, Cinnamon,
+  Coconut, Compass, Crimson, Crystal, Dolphin, Dragon, Enormous, Feather, Flamingo, Forest,
+  Frozen, Galaxy, Giraffe, Glacier, Granite, Hamster, Horizon, Hurricane, Jungle, Kingdom,
+  Lantern, Lobster, Meadow, Mountain, Muffin, Mustard, Octopus, Panther, Pebble, Penguin,
+  Phantom, Pineapple, Pretzel, Pumpkin, Puzzle, Rainbow, Rocket, Salmon, Sapphire, Skeleton,
+  Spaghetti, Spectrum, Starfish, Thunder, Tornado, Treasure, Umbrella, Vibrant, Volcano, Walrus,
+  Whisper, Wildfire, Wizard, Wombat"
 
 ########################################################################################################################
 
 # List of commands to be executed when a player wins minigames, presumably to reward them.
 rewards:
   math:
-    - "eco give {player} 100"
-    - "example command"
+    - "c eco add {player} money 100 Chat Game Win"
 
   rush:
-    - "eco give {player} 100"
-    - "example"
+    - "c eco add {player} money 100 Chat Game Win"
 
   unscramble:
-    - "eco give {player} 100"
-    - "example"
+    - "c eco add {player} money 100 Chat Game Win"
 
 ########################################################################################################################
 
@@ -91,7 +90,7 @@ minigame-messages: # All messages relating to minigames - start/end broadcasts, 
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
       - ""
-      - "&#ffb3a6Correctly answer this the fastest to gain &#ff8787100 coins!"
+      - "&#ffb3a6Correctly answer this the fastest to gain &#ff8787100 money!"
       - "&#ffb3a6Equation: &#ff8787{num1}{operation}{num2}"
       - "&7&m                            "
 
@@ -99,7 +98,7 @@ minigame-messages: # All messages relating to minigames - start/end broadcasts, 
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
       - ""
-      - "&#ffb3a6Type the word the fastest for &#ff8787100 coins!"
+      - "&#ffb3a6Type the word the fastest for &#ff8787100 money!"
       - "&#ffb3a6Word: &#ff8787{answer}"
       - "&7&m                            "
 
@@ -107,7 +106,7 @@ minigame-messages: # All messages relating to minigames - start/end broadcasts, 
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
       - ""
-      - "&#ffb3a6Unscramble the word the fastest for &#ff8787100 coins!"
+      - "&#ffb3a6Unscramble the word the fastest for &#ff8787100 money!"
       - "&#ffb3a6Word: &#ff8787{scrambled}"
       - "&7&m                            "
 
@@ -116,7 +115,7 @@ minigame-messages: # All messages relating to minigames - start/end broadcasts, 
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Reaction Time"
       - "                                                                  "
-      - "&#ffb3a6Click this message the fastest for &#ff8787100 coins!"
+      - "&#ffb3a6Click this message the fastest for &#ff8787100 money!"
       - "&7&m                            "
 
 
@@ -152,16 +151,27 @@ minigame-messages: # All messages relating to minigames - start/end broadcasts, 
 
   answered-correctly-private: # Private message to be sent to a player who completes a specific game
     math:
-      - "&7&oCorrectly solved math problem, &#ffb3a6&o+100 Coins"
+      - "&7&oCorrectly solved math problem, &#ffb3a6&o+100 Money"
 
     rush:
-      - "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
+      - "&7&oCorrectly typed word, &#ffb3a6&o+100 Money"
 
     unscramble:
-      - "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
+      - "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Money"
 
     reactionTime:
-      - "&7&oFirst to click, &#ffb3a6&o+100 Coins"
+      - "&7&oFirst to click, &#ffb3a6&o+100 Money"
+
+########################################################################################################################
+
+auto-start:
+  enabled: true
+  min-interval: 180 # seconds (minimum delay before the next game starts)
+  max-interval: 600 # seconds (maximum delay before the next game starts)
+  games: # Toggle individual games on/off
+    math: true
+    rush: true
+    unscramble: true
 
 ########################################################################################################################
 
