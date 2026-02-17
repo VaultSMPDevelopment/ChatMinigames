@@ -60,6 +60,7 @@ object GameHandler: Listener {
                     )
                 }
 
+                it.cancelTimeout()
                 runningGame = null
             }
         }

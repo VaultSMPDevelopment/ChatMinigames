@@ -149,6 +149,36 @@ minigame-messages: # All messages relating to minigames - start/end broadcasts, 
       - "&7&m                            "
 
 
+  game-expired: # Messages to broadcast when nobody answers a game in time
+    math: # Available placeholders: {num1}, {num2}, {operation}, {answer}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
+      - "&#ffb3a6Nobody solved the equation in time!"
+      - "&#ffb3a6The answer was: &#ff8787{num1}{operation}{num2} = {answer}"
+      - "&7&m                            "
+
+    rush: # Available placeholders: {answer}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
+      - "&#ffb3a6Nobody typed the word in time!"
+      - "&#ffb3a6The word was: &#ff8787{answer}"
+      - "&7&m                            "
+
+    unscramble: # Available placeholders: {scrambled}, {answer}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
+      - "&#ffb3a6Nobody unscrambled the word in time!"
+      - "&#ffb3a6The word was: &#ff8787{answer}"
+      - "&7&m                            "
+
+    reactionTime:
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Reaction Time"
+      - ""
+      - "&#ffb3a6Nobody clicked in time!"
+      - "&7&m                            "
+
+
   answered-correctly-private: # Private message to be sent to a player who completes a specific game
     math:
       - "&7&oCorrectly solved math problem, &#ffb3a6&o+100 Money"
@@ -179,5 +209,6 @@ misc-settings:
   case-sensitive: false # Should answer checking for applicable games (unscramble/rush) be case-sensitive?
   cancel-winning-answers: true # Should the player's message be cancelled (not be sent) if it was a correct answer?
   ignore-cancelled-messages: true # Should cancelled messages (eg: muted players) be ignored?
+  game-timeout: 60 # Seconds before an unanswered game expires. Set to 0 to disable.
 
 ########################################################################################################################
