@@ -32,7 +32,7 @@ object GameScheduler {
                 settings.getConfigurationSection("games")?.getBoolean(key) == true
             }.values.toList()
 
-            if (GameHandler.runningGame == null && enabledGames.isNotEmpty()) {
+            if (GameHandler.runningGame == null && System.currentTimeMillis() >= GameHandler.cooldownUntil && enabledGames.isNotEmpty()) {
                 enabledGames.random().start()
             }
 

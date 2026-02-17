@@ -210,5 +210,6 @@ misc-settings:
   cancel-winning-answers: true # Should the player's message be cancelled (not be sent) if it was a correct answer?
   ignore-cancelled-messages: true # Should cancelled messages (eg: muted players) be ignored?
   game-timeout: 60 # Seconds before an unanswered game expires. Set to 0 to disable.
+  post-expiry-cooldown: 100 # Seconds to wait after a game expires before a new one can start.
 
 ########################################################################################################################

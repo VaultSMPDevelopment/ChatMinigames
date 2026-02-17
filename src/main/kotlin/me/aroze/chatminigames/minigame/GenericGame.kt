@@ -34,6 +34,8 @@ abstract class GenericGame(val type: GameType) {
                             .replacePlaceholders(values)
                             .coloured()
                     )
+                    val cooldownSeconds = config.getLong("misc-settings.post-expiry-cooldown")
+                    GameHandler.cooldownUntil = System.currentTimeMillis() + (cooldownSeconds * 1000L)
                     runningGame = null
                 }
                 timeoutTask = null

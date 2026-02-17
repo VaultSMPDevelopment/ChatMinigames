@@ -16,6 +16,7 @@ import java.util.EventListener
 object GameHandler: Listener {
 
     var runningGame: GenericGame? = null
+    var cooldownUntil: Long = 0
 
     @EventHandler
     fun onChat(event: AsyncPlayerChatEvent) {
